@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://172.26.224.1:3306/auth_service?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: fuelwise
+    password: fuelwise_pass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+      hibernate.jdbc.time_zone: UTC
+      hibernate.format_sql: true
+  flyway:
+    enabled: false
+app:
+  jwt:
+    secret: "base64:0QFQVsW0CFYbaCHY2ZuhkEHlan6jZEGXhSjE05KtliI="
+    issuer: "fuelwise"
+    access-minutes: 15
+    refresh-days: 7
